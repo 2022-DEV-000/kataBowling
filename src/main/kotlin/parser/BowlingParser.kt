@@ -3,7 +3,7 @@ package parser
 import models.Frame
 import models.Game
 
-class BowlingParser : GameParser {
+object BowlingParser : GameParser {
 
     private val allowedFrames = Regex("[-0-9X][-0-9X/]{0,2}")
 
