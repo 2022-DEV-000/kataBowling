@@ -4,6 +4,7 @@ sealed class Frame {
     companion object{
         fun fromThrows(first: Int, second: Int? = null, third: Int? = null) : Frame =
             when {
+                first + (second ?: 0) == 10 -> Spare(first)
                 first == 10 && third == null -> Strike
                 else -> Open(first,second ?: 0)
             }
