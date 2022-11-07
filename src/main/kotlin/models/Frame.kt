@@ -2,10 +2,10 @@ package models
 
 sealed class Frame {
     companion object{
-        fun fromThrows(firstThrow: Int, secondThrow: Int? = null, thirdThrow: Int? = null) : Frame =
+        fun fromThrows(first: Int, second: Int? = null, third: Int? = null) : Frame =
             when {
-                firstThrow == 10 && thirdThrow == null -> Strike
-                else -> Open(firstThrow,secondThrow ?: 0)
+                first == 10 && third == null -> Strike
+                else -> Open(first,second ?: 0)
             }
 
     }
