@@ -14,4 +14,12 @@ class BowlingParser : GameParser {
         require(allowedFrames.matches(frame)) { "Invalid frame '$frame'" }
     }
 
+    private fun Char.toValue(previous: Char? = null): Int =
+        when (this) {
+            "X".single() -> 10
+            "-".single() -> 0
+            "/".single() -> (10 - (previous?.toValue() ?: 0))
+            else -> Character.getNumericValue(this)
+        }
+
 }
