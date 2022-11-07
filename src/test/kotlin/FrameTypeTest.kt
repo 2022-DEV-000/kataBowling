@@ -19,12 +19,12 @@ class FrameTypeTest {
     }
 
     @Test
-    fun tenth_spare(){
+    fun last_spare(){
         Assert.assertEquals(Last(Spare(2),10), Frame.fromThrows(2,8,10))
     }
 
     @Test
-    fun tenth_strike(){
+    fun last_strike(){
         Assert.assertEquals(Last(Strike,10,10), Frame.fromThrows(10,10,10))
     }
 }
