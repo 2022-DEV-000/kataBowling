@@ -2,7 +2,12 @@ package models
 
 sealed class Frame {
     companion object{
-        fun fromThrows(firstThrow: Int, secondThrow: Int? = null, thirdThrow: Int? = null) = Strike
+        fun fromThrows(firstThrow: Int, secondThrow: Int? = null, thirdThrow: Int? = null) : Frame =
+            when {
+
+                else -> Open(firstThrow,secondThrow ?: 0)
+            }
+
     }
 }
 object Strike : Frame()
