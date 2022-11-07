@@ -3,6 +3,7 @@ import org.junit.Assert
 import org.junit.Test
 
 class FrameTypeTest {
+
     @Test
     fun strike(){
         Assert.assertEquals(Strike, Frame.fromThrows(10))

@@ -9,10 +9,10 @@ sealed class Frame {
                 //Last frame spare
                 third != null ->
                     Last(frame = fromThrows(first, second), firstBonus = third)
+                //Strike
+                first == 10 -> Strike
                 //Spare frame
                 first + (second ?: 0) == 10 -> Spare(first)
-                //Strike
-                first == 10 && third == null -> Strike
                 else -> Open(first,second ?: 0)
             }
 
