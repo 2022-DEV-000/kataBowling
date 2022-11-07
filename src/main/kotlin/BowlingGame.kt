@@ -4,10 +4,11 @@ import parser.GameParser
 
 class BowlingGame (
     private val gameParser: GameParser = BowlingParser,
+    private val score: (Game) -> Int = Score::score
 
     ) {
         infix fun totalScore(frames: String): Int {
             val game: Game = gameParser.parse(frames)
-            return 0
+            return score(game)
         }
 }

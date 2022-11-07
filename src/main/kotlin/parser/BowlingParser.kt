@@ -8,7 +8,8 @@ object BowlingParser : GameParser {
     private val allowedFrames = Regex("[-0-9X][-0-9X/]{0,2}")
 
     override fun parse(frames: String): Game {
-        TODO("Not yet implemented")
+        val allFrames = frames.split(" ").map(::asFrame)
+        return Game(allFrames)
     }
 
     fun asFrame(frame: String) : Frame {
