@@ -3,9 +3,18 @@ import models.*
 object Score {
     fun score(game: Game): Int {
         require(game.frames.size == 10) { "Invalid number of frames, was ${game.frames.size} and must be 10" }
-        return 0
+        return score(game.frames, 1, 0)
     }
 
+    private tailrec fun score(frames: List<Frame>, turn: Int, score: Int): Int =
+        when {
+            frames.isEmpty() || turn > 10 -> score
+            else -> {
+                val tail = frames.drop(1)
+                val newScore = score + scoreFrame(frames.first(), frames.getOrNull(1), frames.getOrNull(2))
+                score(tail, turn.inc(), newScore)
+            }
+        }
 
     fun scoreFrame(currentFrame: Frame, nextFrame: Frame?, afterNextFrame: Frame?): Int {
         val (firstNextRoll, secondNextRoll) = getFollowingTwoThrows(nextFrame, afterNextFrame)
