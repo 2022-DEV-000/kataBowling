@@ -3,6 +3,7 @@ import models.Spare
 import models.Strike
 import org.junit.Assert
 import org.junit.Test
+import scoring.Score
 
 class FrameScoreTest {
 

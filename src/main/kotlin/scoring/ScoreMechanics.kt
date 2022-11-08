@@ -1,3 +1,5 @@
+package scoring
+
 import models.*
 
 object Score {
