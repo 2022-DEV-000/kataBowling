@@ -22,3 +22,19 @@ object Strike : Frame()
 data class Spare(val first : Int) : Frame()
 data class Open(val first : Int, val second : Int) : Frame()
 data class Last(val frame: Frame, val firstBonus : Int? = null, val secondBonus : Int? = null) : Frame()
+
+fun Frame.countFirst(): Int =
+    when (this) {
+        is Strike -> 10
+        is Spare -> this.first
+        is Open -> this.first
+        is Last -> this.frame.countFirst()
+    }
+
+fun Frame.countTotal(): Int =
+    when (this) {
+        is Strike -> 10
+        is Spare -> 10
+        is Open -> this.first + this.second
+        is Last -> this.frame.countTotal() + (this.firstBonus ?: 0) + (this.secondBonus ?: 0)
+    }
