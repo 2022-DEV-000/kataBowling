@@ -1,3 +1,6 @@
+package scoring
+
+import Score
 import models.Game
 import parser.BowlingParser
 import parser.GameParser
